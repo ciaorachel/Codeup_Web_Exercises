@@ -1,0 +1,135 @@
+body {
+	font-family: arial, Verdana, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+section {
+	padding-bottom: 20px;
+}
+
+h1 {
+	text-decoration: underline;
+	color: #CC0000;
+	font-style: italic;
+	font-size: 3rem;
+	font-family: times, serif;
+}
+
+h2 {
+	text-decoration: underline;
+	color: #666666;
+	font-size: 1.8rem;
+}
+
+blockquote {
+	font-style: italic;
+	font-size: 3rem;
+}
+
+table {
+	border: 2px solid #cccccc;
+	width: 50%;
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #eeeeee;
+	font-family: serif;
+	font-style: italic;
+	font-size: 1.2rem;
+}
+
+th {
+	padding: 13px;
+	width: 50%;
+}
+
+td {
+	text-align: center;
+	padding: 10px;
+	background-color: #FFFACD;
+
+}
+
+
+#car {
+	float: left;
+}
+
+.quote {
+	width: 70%;
+	margin: 20px auto;
+}
+
+.quotee {
+	font-size: 0.9rem;
+	float: right;
+	color: #6A5ACD;
+	font-family: serif;
+	margin-bottom: 10px;
+
+}
+
+.clearfix {
+	clear: both;
+
+}
+
+
+.group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+.bigsquare {
+	width: 400px;
+	height: 400px;
+	background-color: blue;
+	position: absolute;
+}
+
+.lilsquare {
+	width: 200px;
+	height: 200px;
+	background-color: green;
+	position: relative;
+	margin-left: 400px;
+}
+
+
+a:link {
+	color: #FFC000;
+	text-decoration: none;
+}
+
+a:visited {
+ 	color: #BDB76B;
+ 	text-decoration: none;
+ }
+
+a:hover {
+ 	color: #BC8F8F;
+ 	text-decoration: underline;
+ }
+
+a:active {
+ 	color: ##6B8E23;
+ 	font-style: italic;
+ 	font-weight: bold;
+ }
+
+ul.sites {
+	list-style-type: square;
+}
+
+ul.lamp {
+	list-style-type: circle;
+}
+
+ol {
+	list-style-type: upper-roman;
+}
+
+

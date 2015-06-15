@@ -1,0 +1,46 @@
+/* selector for id="container" */
+body {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+#container {
+    margin: 50px auto;
+    width: 500px;
+    padding: 10px;
+}
+
+/*  selector for all "h1" elements
+    that are a descendent of id="container"
+    and have a class of "fancy-header" */
+#container .fancy-header {
+    color: gray;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: lighter;
+    font-family: serif;
+    font-size: 2rem;
+}
+
+/* selector for all "em" elements */
+em {
+    font-weight: bolder;
+}
+
+/* selector for all elements with class="article" */
+.article {
+    clear:both;
+}
+
+/*  selector for all "anchor" elements
+    that are a direct child of an element with class="article" */
+.article > a:link, a:visited {
+    float: right;
+    color: red;
+}
+
+.article > a:hover, a:active {
+    float: right;
+    color: green;
+    background-color: yellow;
+}

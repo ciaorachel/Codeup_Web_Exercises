@@ -1,0 +1,75 @@
+#grad {
+  background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,1)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(0,0,0,1)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(255,255,255,0),rgba(0,0,0,1)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1)); /*Standard*/
+}
+
+h1 {
+	font-family: serif;
+	color: #333333;
+	font-weight: lighter;
+	font-size: 2.2rem;
+}
+
+section {
+	width: 70%;
+	margin: 20px auto;
+}
+
+
+p {
+	font-family: sans-serif;
+	color: black;
+	vertical-align: text-top;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+img {
+	position: relative;
+	top:-100px;
+	right:-40px;
+}
+
+.squarewaves {
+	width: 50px;
+	height: 50px;
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	margin-right: 50px;
+	border: 1px solid black;
+	float: left;
+	clear: right;
+	position: inherit;
+}
+
+#red {
+	background-color: red;
+}
+
+#orange {
+	background-color: orange;
+}
+
+#yellow {
+	background-color: yellow;
+}
+
+#green {
+	background-color: green;
+}
+
+#blue {
+	background-color: blue;
+}
+
+#purple {
+	background-color: purple;
+}
+
+.clearfix {
+	clear: both;
+}
