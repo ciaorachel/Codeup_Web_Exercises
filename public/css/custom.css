@@ -1,0 +1,70 @@
+dt {
+  	font-style: italic;
+}
+
+h1.wrapper {
+	font-size: 3.5em;
+	text-align: center;
+}
+
+h4.exp {
+	font-weight: bolder;
+}
+
+h5.exp {
+	font-style: italic;
+}
+
+p.exp {
+	padding-bottom: 13px;
+}
+
+.img-circle {
+	width: 95%;
+	margin: 1px auto;
+	max-width: 250px;
+}
+
+.table-striped {
+	width: 95%;
+	margin: 1px auto;
+	margin-top: 50px;
+	text-align: center;
+	max-width: 250px;
+	vertical-align: middle;
+}
+
+h4.exp a, a:link, a:visited, a:active {
+	color: #df8a13;
+}
+
+h4.exp a:hover {
+	color: #b26e0f;
+	text-decoration: none;
+}
+
+table.table.table-striped > tbody > tr > td > a, a:link, a:visited, a:active {
+	color: #df8a13;
+}
+
+table.table.table-striped > tbody > tr > td > a:hover {
+	color: #b26e0f;
+	text-decoration: none;
+}
+
+ul.nav.nav-tabs > li.active > a {
+	color: #2e618d;
+	text-decoration: none;
+}
+
+ul.nav.nav-tabs > li > a:link, a:visited {
+	color: #428bca;
+}
+
+
+
+ul.nav.nav-tabs > li > a:hover, a:active {
+	color: #2e618d;
+	text-decoration: none;
+}
+
