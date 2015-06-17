@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script>
+	
+
+	/* 
+	SAVE THIS FOR REFERENCE - self-invoking function to avoid var/function naming conflicts and use strict - place at top of JS files:
+
+	"use strict";
+
+	(function() {
+		//all the code lives in here
+
+	}) (); 
+	*/
+
+	(function() {
+		var message = "Hey guys!"
+	
+		function sayHello() {
+		console.log(message);
+			var message = "Hey Mars!";
+			console.log(message);	
+	}
+	
+	sayHello();
+
+	console.log(message);
+	}) ();
+
+	
+
+	</script>
+
+</body>
+</html>

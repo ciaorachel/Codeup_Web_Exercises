@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions Exercise</title>
+</head>
+<body>
+	<h1>Functions Exercise</h1>
+
+	<script>
+	//FUNCTIONS EXERCISES
+
+	//EXERCISE #1:
+	var myNameIs = 'Bob'; // todo: Fill in your name here.
+	var name = myNameIs;
+	function sayHello(name) {
+		console.log("Hello, " + name + "!");
+	}
+
+	sayHello(name);
+
+	// todo:
+	// Create a function called 'sayHello' that takes a parameter 'name'.
+	// When called, the function should log a message that says hello from the passed in name.
+
+	// todo: Call the function 'sayHello' passing the variable 'myNameIs' as a parameter.
+
+	//EXERCISE #2:
+	// do not worry about the details of this line
+	// just know that it generates a random number between 1 and 100
+	var random = Math.floor((Math.random()*100)+1);
+
+	var notEven = random % 2 == 1;
+
+	var message;
+
+	function isOdd(notEven) {
+		message = (notEven) ? "that number is odd." : "that number is even.";
+		console.log(random + " - " + message);
+	}
+
+	isOdd(random);
+
+	// todo:
+	// Create a function called 'isOdd' that takes a number as a parameter.
+	// The function should use the ternary operator to log a message.
+	// The log should tell the number passed in and whether it is odd or not.
+
+	// todo: Call the function 'isOdd' passing the variable 'random' as a parameter.
+
+
+
+
+
+	//CLASS NOTES
+	//hello, first name 
+	/*function sayHello(name) {
+		console.log("Hello, " + name);
+	}
+
+	sayHello("Glacier");
+	sayHello("Ryan");
+	sayHello("Dylan");
+	sayHello("Justin");*/
+
+	//hello, first name and last name
+	/*function sayHello(firstName, lastName) {
+		console.log("Hello, " + firstName + " " + lastName);
+	}
+
+	sayHello("Glacier", "Cohort");
+	sayHello("Ryan", "Orsinger");
+	sayHello("Dylan", "P");
+	sayHello("Justin");*/
+
+
+
+	//hello, with parameters
+	/*function sayHello(firstName, lastName) {
+		console.log("Hello, " + firstName + " " + lastName);
+	}
+
+	var firstName = "Glacier"
+	var lastName = "Cohort"
+
+	sayHello(firstName, lastName);
+	sayHello(lastName, firstName);
+	sayHello("Ryan", "Orsinger");
+	sayHello("Dylan", "P");
+	sayHello("Justin");*/
+
+	//addition
+	/*function sum(a, b) {
+		return a + b;
+	}
+
+	var result = sum (100, 200);
+
+	console.log(result);
+
+
+	var add = sum;
+
+	var result2 = add (500, 1000)
+
+	console.log(result2);*/
+
+
+	/*function sayHello() {
+		console.log("Hello, Glacier");
+	}
+
+
+	function doAThing(callback) {
+		console.log("Calling callback function");
+	
+		return callback();
+	}
+
+	doAThing(sayHello);
+	doAThing(function() {
+		console.log("I am an anonymous function.");
+	});*/
+
+
+	//subtraction - fancy JS style - not expected to follow this style
+	/*var subtract = function(a, b) {
+		return a - b;
+	};
+	console.log(subtract(300,200));*/
+
+	</script>
+
+</body>
+</html>
