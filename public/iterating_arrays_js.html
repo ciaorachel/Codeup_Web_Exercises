@@ -28,11 +28,26 @@
 		//Iterating Over Arrays Using Loops
 
 		for (var i = 0; i < names.length; i++) {
-			console.log("The name at index " + [i] + " is " + names[i]);
+			console.log("The name at index " + [i] + " is " + names[i] + ".");
 		}
 
 		names.forEach(function (element, index, array) {
-			console.log("The name at index " + index + " is " + element);
+			console.log("The name at index " + index + " is: " + element + ".");
+		});
+
+
+
+		// Here's another example:
+
+		var names = ["Ringo", "Paul", "John", "George"];
+
+		for (var i = 0; i < names.length; i++) {
+			console.log("The Beatle at index " + [i] + " is " + names[i] + ".");
+		}
+
+		//ORDER DOES MATTER - renaming the terms in example here:
+		names.forEach(function (beatle, position, array) {
+			console.log("The Beatle at position " + position + " is " + beatle + ".");
 		});
 
 	}) (); 
