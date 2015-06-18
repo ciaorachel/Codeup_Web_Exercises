@@ -6,20 +6,39 @@
 <body>
 
 	<script>
-	
-
-	/* 
-	SAVE THIS FOR REFERENCE - self-invoking function to avoid var/function naming conflicts and use strict - place at top of JS files:
-
 	"use strict";
 
 	(function() {
-		//all the code lives in here
 
-	}) (); 
-	*/
+		//EXERCISE #1:
+		var myNameIs = 'Rachel'; // todo: Fill in your name here.
+		var name = myNameIs;
+		function sayHello(name) {
+			console.log("Hello, " + name + "!");
+		}
 
-	(function() {
+		sayHello(name);
+
+
+		//EXERCISE #2:
+		// do not worry about the details of this line
+		// just know that it generates a random number between 1 and 100
+		var random = Math.floor((Math.random()*100)+1);
+		var notEven = random % 2 == 1;
+		var message;
+		function isOdd(notEven) {
+			message = (notEven) ? "that number is odd." : "that number is even.";
+			console.log(random + " - " + message);
+		}
+
+		isOdd(notEven);
+
+	}) ();
+
+
+
+	//CLASS NOTES:
+	/*(function() {
 		var message = "Hey guys!"
 	
 		function sayHello() {
@@ -31,9 +50,18 @@
 	sayHello();
 
 	console.log(message);
-	}) ();
+	}) ();*/
 
-	
+	/* 
+	SAVE THIS FOR REFERENCE - self-invoking function to avoid var/function naming conflicts and use strict - place at top of JS files:
+
+	"use strict";
+
+	(function() {
+		//all the code lives in here
+
+	}) (); 
+	*/
 
 	</script>
 
