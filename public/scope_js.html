@@ -10,28 +10,26 @@
 
 	(function() {
 
-		//EXERCISE #1:
-		var myNameIs = 'Rachel'; // todo: Fill in your name here.
-		var name = myNameIs;
 		function sayHello(name) {
-			console.log("Hello, " + name + "!");
+			return("Hello, " + name + "!");
 		}
 
-		sayHello(name);
+
+		function isOdd(notEven) {
+			message = (notEven) ? "that number is odd." : "that number is even.";
+			return(random + " - " + message);
+		}
 
 
-		//EXERCISE #2:
-		// do not worry about the details of this line
-		// just know that it generates a random number between 1 and 100
+		var myNameIs = 'Rachel'; // todo: Fill in your name here.
+		var name = myNameIs;
 		var random = Math.floor((Math.random()*100)+1);
 		var notEven = random % 2 == 1;
 		var message;
-		function isOdd(notEven) {
-			message = (notEven) ? "that number is odd." : "that number is even.";
-			console.log(random + " - " + message);
-		}
 
-		isOdd(notEven);
+		console.log(name);
+		console.log(isOdd(random));
+
 
 	}) ();
 
