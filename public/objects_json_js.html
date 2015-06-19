@@ -14,31 +14,44 @@
 	// Each book should have a title and an author.
 	// The book author should be an object with a firstName and lastName.
 	// Be creative and add at least 5 books to the array
+	var author ={};
+
+
 	var books = [
 	{	
-		"position": "1",
 		"title": "Little Bo Peep",
-		"author": "Brothers Grimm",
+		"author": {
+			"firstName" : "Brothers",
+			"lastName" : "Grimm"
+		},
 		"publisher": "Little Golden Books"
 	}, {
-		"position": "2",
 		"title": "Goldie Locks and the Three Bears",
-		"author": "Jo Brown",
+		"author": {
+			"firstName" : "Jo",
+			"lastName" : "Brown"
+		},
 		"publisher": "ABC Press"
 	}, {
-		"position": "3",
 		"title": "To Kill A Mockingbird",
-		"author": "Harper Lee",
+		"author": {
+			"firstName" : "Harper",
+			"lastName" : "Lee"
+		},
 		"publisher": "XYZ Printer"
 	}, {
-		"position": "4",
 		"title": "Cat in the Hat",
-		"author": "Dr. Seuss",
+		"author": {
+			"firstName" : "Dr.",
+			"lastName" : "Seuss"
+		},
 		"publisher": "Texas Press"
 	} , {
-		"position": "5",
 		"title": "Webster's Dictionary",
-		"author": "Mary Jones",
+		"author": {
+			"firstName" : "Mary", 
+			"lastName" : "Jones, et. al."
+		},
 		"publisher": "Webster Press"
 	}];
 
@@ -55,9 +68,9 @@
 	// end loop here
 
 	books.forEach(function (element, index, array) {
-		console.log("Book # " + element.position);
+		console.log("Book # " + (index + 1));
 	    console.log("Title: " + element.title);
-	    console.log("Author: " + element.author);
+	    console.log("Author: " + element.author.firstName + " " + element.author.lastName);
 	    console.log("Publisher: " + element.publisher);
 	});
 	
