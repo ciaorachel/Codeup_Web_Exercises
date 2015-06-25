@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+	<title>jQuery Exercise</title>
+	<style>
+	</style>
+</head>
+<body>
+	<div id="main">
+		<h1 id="fancy">jQuery</h1>
+
+		<h2>This is a unique ID</h2>
+
+		<p id="welcome">Here's a paragraph. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah.</p>
+		<p class="codeup">Here's a second graf. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah.</p>
+		<p class="codeup">Here's a third graf.  Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah.</p>
+		<ul id="importantList">
+			<h3>Unordered List</h3>
+			<li class="item">List item 1</li>
+			<li class="item">List item 2</li>
+			<li class="item">List item 3</li>
+		</ul>
+
+		<button id="highlight-btn">Highlight</button>
+	</div>	
+	<div id="sidebar">
+		<h2 id="anotherHeader">This is unique too</h2>
+
+		<p>Here's a paragraph. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah. Lorem ipsum et blah blah blah.</p>
+
+		<ol id="anotherCoolList">
+			<h3>Ordered List</h3>
+			<li class="item">List <span id="first">item 1</span></li>
+			<li class="item">List item 2</li>
+			<li class="item codeup">List item 3</li>
+		</ol>
+
+	</div>
+
+	<script src="/js/jquery.js"></script>
+	<script>
+	window.onload = function () {
+		console.log("Vanilla JS checked for onload");
+	}
+
+	$(document).ready(function() {
+
+
+		/*alert("The DOM has finished loading!");
+
+		var listItems = $(".item").html();
+
+		var contents = $("#sidebar");
+		console.log(contents.html());
+		$("#fancy").css({
+			"border": "1px dashed #0000FF",
+			"font-size": "4rem",
+			"font-family": "Arial, Helvetica, sans-serif"
+		})
+		$(".codeup").css("border", "4px solid #FF0000");
+		$(".item").css({
+			"background-color": "#00FF00",
+			"text-decoration": "overline"
+		})
+		$("p").css("background-color", "#999966");
+		$("#first").css("background-color", "#6699FF");
+		$("*").css("border", "1px solid #000000");
+		$("#highlight-btn").click(function () {
+			console.log("button was clicked!");
+		}); 
+
+		$("h1").click(function (e) {
+			console.log("it's that simple!");
+			console.log(e);
+		})
+		$("p").hover(function() {
+			console.log("paragraph IN");
+		}, function () {
+			console.log("paragraph OUT");
+		});
+
+		$("h1").dblclick(function() {
+			$(this).css("background-color", "#FF9933");
+		});*/
+
+
+
+
+	$("h1").click(function() {
+		$(this).css("background-color", "#FF9933").css("background-color", "#6699FF")
+	});
+
+	$("h2").click(function() {
+		$(this).css("background-color", "#FF9933");
+	});
+
+	$("h3").dblclick(function() {
+		$(this).css("background-color", "#999966");
+	});
+
+
+	$("li").hover(function () {
+		$(this).css("font-size", "20px").css("color", "#F00");
+	}, function() {
+		$(this).css("font-size", "1rem").css("color", "#000");
+	})
+
+// up 38, down 40, left 37, right 39
+
+
+
+
+	}); 
+
+
+	</script>	
+
+</body>
+</html>
