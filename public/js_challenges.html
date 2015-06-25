@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>JS Challenges</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict";
+//(function() {
+
+	//Challenge #1
+	// if input is "", then return "Hello, World!"
+	// if input is name is "Rachel", then return "Hello, Rachel!"
+	// if input is any other data type , then return "that is not a valid input" -- other data types are number, array, boolean, object
+
+
+
+	function helloWorld(input) {
+		if (typeof input === "string") {
+				if (input === "") {
+				return "Hello, World!";
+				} else {
+					return "Hello, " + input + "!";
+				}
+			
+		} else {
+			return "That is not a valid input";
+		}
+	}
+
+	helloWorld();
+	
+
+
+	//Challenge #2
+	//Model Bob's behavior
+	//if input is question (must contain question mark), Bob responds: "Sure."
+	//if input is ALL CAPS, Bob responds: "Whoa, chill out!"
+	//if input is empty, Bob responds: "Fine. Be that way!"
+	//to anything else, Bob responds: "Whatever."
+	
+	
+	function heyBob(question) {
+		if (typeof question === "string" && question.indexOf("?") > -1) {
+				return "Bob says: Sure.";
+		} else if (question === question.toString().toUppercase()) {
+				return "Bob says: Whoa, chill out!";
+		} else if (question === "") {
+				return "Bob says: Fine. Be that way!";
+		} else {
+				return "Bob says: Whatever.";
+		}
+	}
+
+	heyBob("is this a question?");
+
+
+//}) ();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<html>
+<head>
+  <title>Google Maps Exercise</title>
+  <style type="text/css">
+  #map-canvas, #map-canvas-2, #map-canvas-3 {
+    width: 500px;
+    height: 200px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- div to hold map -->
+  <div>
+    <h1>Fave Restaurants in SA</h1>
+    <div id="map-canvas"></div>
+    <div id="map-canvas-2"></div>
+    <div id="map-canvas-3"></div>
+    <div id="map-canvas-4"></div>
+    <div id="map-canvas-5"></div>
+  </div>
+  <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEJFL7QPQ-PFer9t_nYvjTp89CUgSegDs
+"></script>
+
+  <!-- Script to show address on map -->
+  <script>
+  "use strict";
+  (function() {
+
+  
+    //Map 1
+    function faveRestaurant () {
+      var address = "955 S Alamo St, San Antonio, TX 78204";
+
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var mapOptions = {
+            zoom: 15,
+            center: results[0].geometry.location,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var titos = { lat: 29.414146, lng: -98.490991 };
+        var marker = new google.maps.Marker({
+          position: titos,
+          map: map
+        });
+        var infowindow = new google.maps.InfoWindow({
+          content: "Heeeere's Tito's!"
+        });
+
+      infowindow.open(map,marker); // Open window using our map and marker
+
+        } else {
+            alert("Geocoding was not successful - STATUS: " + status);
+          }
+      })
+    }
+    faveRestaurant ();
+
+    //Map 2
+    function faveRestaurant2 () {
+      var address = '2415 N Main Ave, San Antonio, TX 78212';
+
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var mapOptions = {
+            zoom: 19,
+            center: results[0].geometry.location,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+        var map = new google.maps.Map(document.getElementById("map-canvas-2"), mapOptions);
+        var laFonda = { lat: 29.4524893, lng: -98.49415149999999 };
+        var marker = new google.maps.Marker({
+          position: laFonda,
+          map: map
+        });
+        var infowindow = new google.maps.InfoWindow({
+          content: "Heeeere's La Fonda!"
+        });
+
+      infowindow.open(map,marker); // Open window using our map and marker
+
+        } else {
+            alert("Geocoding was not successful - STATUS: " + status);
+          }
+      })
+    }
+    faveRestaurant2 ();
+
+    //Map 3
+    function faveRestaurant3 () {
+      var address = '800 Dolorosa #204, San Antonio, TX 78207';
+
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var mapOptions = {
+            zoom: 19,
+            center: results[0].geometry.location,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas-3"), mapOptions);
+        var miTierra = { lat: 29.4239002, lng: -98.49887469999999};
+        var marker = new google.maps.Marker({
+          position: miTierra,
+          map: map
+        });
+        var infowindow = new google.maps.InfoWindow({
+          content: "Heeeere's Mi Terra!"
+        });
+
+      infowindow.open(map,marker); // Open window using our map and marker
+
+        } else {
+            alert("Geocoding was not successful - STATUS: " + status);
+          }
+      })
+    }
+    faveRestaurant3 ();
+  
+        
+  
+
+
+  })();
+  </script>
+</body>
