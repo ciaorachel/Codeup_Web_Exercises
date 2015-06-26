@@ -5,13 +5,11 @@
 </head>
 <body>
 	<main>
-		<h1>Konami Code</h1>
+		<h1>Konami Code Exercise</h1>
 
 		
 
 	</main>
-
-
 
 
 	<script src="/js/jquery.js"></script>
@@ -26,118 +24,32 @@
         	var inputLength = input.length;
         	console.log(input);
 
-        	if (input.length == 11) {
+        	if (inputLength == 11) {
         		var inputJoined = input.join("");
         		console.log(inputJoined);
-        	}
-
-        	if (inputJoined == konamiCode) {
-        		alert("You win!!");
-        	} else {
-        		(function(event){
-        			$("input").empty();
-        	} );
+        		
+        		if (inputJoined == konamiCode) {
+        			alert("Congratulations! You have added 30 lives!!");
+        		}
+        		
+        		input.splice(0, input.length);
+        	}	
 
         });
-
       
 		var konamiCode = 3838404037393739666513;
 		
 		var input = [];
 
-		var i = 0;   
 
-/*		for (var i = 0; i < konamiCode.length; i++){ 
-            	[i].push({
-            		konamiCode[i] : 0
-            	});
-            	
-            };
-*/
-      
 
 	});
         
 
-/*
-        keyHooks: {
-		props: "keyCode".split(""),
-		function( event, original ) {
-
-			// Add which for key events
-			if ( event.which == null ) {
-				event.which = original.charCode != null ? original.charCode : original.keyCode;
-			} return event;
-		}
-		}
-        
-*/
-
-
-/* 
-        	for (var i = 0; i < konamiCode.length; i++){ 
-            	if (input === i) {
-            	alert("You win!!");
-            	}
-            };
-            */
-            
 
 
 
-// 3838404037393739666513
-/*	
-
-	$(document).keyup(function () {
-		if (event.keyCode === 38) {
-			console.log("Good so far...");
-		} 
-			if (event.keyCode === 38) {
-			console.log("Good so far...");
-			}
-				if (event.keyCode === 40) {
-				console.log("Good so far...");
-				}
-					if (event.keyCode === 40) {
-					console.log("Good so far...");
-					}
-						if (event.keyCode === 37) {
-						console.log("Good so far...");
-						}
-							if (event.keyCode === 39) {
-							console.log("Good so far...");
-							}
-								if (event.keyCode === 37) {
-								console.log("Good so far...");
-								}
-									if (event.keyCode === 39) {
-									console.log("Good so far...");
-									}
-										if (event.keyCode === 66) {
-										console.log("Good so far...");
-										}
-											if (event.keyCode === 65) {
-											console.log("Good so far...");
-											}
-												if (event.keyCode === 13) {
-												alert("You win!!");
-												console.log("You win!");
-												}
-
-			else {
-
-			}
-
-	});
-
-
-*/
-	
-
-
-
-	// up 38, down 40, left 37, right 39, b 66, a 65, enter 13
-	// Code: Up, Up, Down, Down, Left, Right, Left, Right, B, A ( ↑ ↑ ↓ ↓ ← → ← → B A )
+	// Konami Code: Up, Up, Down, Down, Left, Right, Left, Right, B, A (↑ ↑ ↓ ↓ ← → ← → B A)
 	// Code: 38, 38, 40, 40, && 37 && 39 && 37 && 39 && 66 && 65 && 13
 
 
