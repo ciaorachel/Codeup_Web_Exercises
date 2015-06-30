@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+    th {
+        width: 100px;
+    }
+    </style>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+"use strict";
+(function() {
+    $.getJSON("/data/inventory.json", function(data) {
+        $.each(data, function(i, field){
+            $("#insertProducts").append(
+                "<tr><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>$" + data[i].price + "</td><td>" + data[i].categories + "</td></tr>");
+            console.log(data[i].title + data[i].quantity + data[i].price);
+        });
+    });
+
+
+
+$.ajax("/data/inventory.json")
+    .done(function() {
+        alert("Everything went great!");
+    }).fail(function() {
+        alert("There was an error!");
+    }).always(function() {
+        alert("And we're finished!");
+    });
+
+
+    // TODO: Create an ajax GET request for /data/inventory.json
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
+    /*
+    //THIS IS MY FAILED WORK ON .getJSON 
+    var jqxhr = $.getJSON( "/data/inventory.json", function(data) {
+        var items = [];
+        $.each(data, function(key, val) {
+            items.push(
+                "<tr><td id='" + key + " : " + val + "</td>
+                <td id='" + key + " : " + val + "</td>
+                <td id='" + key + " : " + val + "</td>
+                <td id='" + key + " : " + val + "</td></tr>");
+    }).done(function(data) {
+         ("#insertProducts").append(data);
+        console.log(data);
+        alert("Everything went great!");
+    }).fail(function() {
+        alert("There was an error!");
+    }).always(function() {
+        alert("And we're finished!");
+    });
+
+    // ANOTHER NONWORKING EXAMPLE
+    $.getJSON("/data/inventory.json", function(data) {
+        $.each(data, function(i, field){
+            $("div").append(field + " ");
+        });
+    });
+
+
+
+    $.ajax("/data/inventory.json")
+    .done(function(data) {
+        $("#insertProducts").append(data);
+        console.log(data);
+        alert("Everything went great!");
+    }).fail(function() {
+        alert("There was an error!");
+    }).always(function() {
+        alert("And we're finished!");
+    });
+
+
+*/
+
+})();
+</script>
+
+</body>
+</html>
