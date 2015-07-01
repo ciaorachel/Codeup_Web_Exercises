@@ -4,23 +4,53 @@
 	<title>Weather API Exercise</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<style>
-	#insertWeather {
+	#threeDayForecast {
+		width: 80%;
 		margin: 0 auto;
 		padding: 10px;
+	}
+
+	#currentWeather {
+		width: 210px;
+		padding: 10px;
+		margin-right: 10px;
+		float: left;
+		border: 1px solid #eeeeee;
+	}
+
+	#tomorrowWeather {
+		width: 210px;
+		padding: 10px;
+		float: left;
+		border: 1px solid #eeeeee;
+		min-height: 100%;
+	}
+
+	#dayAfterTomorrow {
+		width: 210px;
+		padding: 10px;
+		margin-left: 10px;
+		float: left;
+		border: 1px solid #eeeeee;
+		min-height: 100%;
 	}
 	</style>
 </head>
 <body>
 	<div class="container-fluid">
-		<h1>Weather API Exercise</h1>
 
-		<div id="insertWeather"></div>
+		<div id="threeDayForecast">
+			<h1>Weather API Exercise</h1>
+			<div id="currentWeather"></div>
+			<div id="tomorrowWeather"></div>
+			<div id="dayAfterTomorrow"></div>
+			</div>
+		</div>
 	</div>
 	<script src="/js/jquery.js"></script>
 	<script>
 	"use strict";
     $(document).ready(function () {
-
 
     	//CURRENT WEATHER
 		var weatherToday = $.get("http://api.openweathermap.org/data/2.5/weather", {
@@ -31,8 +61,6 @@
 		});
 
 		weatherToday.always(function() {
-			/*console.log("request sent");*/
-
 		});
 
 		weatherToday.fail(function(data, error) {
@@ -41,23 +69,22 @@
 		});
 
 		weatherToday.done(function(data) {
-			/*console.log(data);*/
-			$("#insertWeather").append(
-				"<div><h2>Currently</h2><img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\"></div><div><p>Current temp is: " + data.main.temp + "&#8457;</p>"
+			$("#currentWeather").append(
+				"<div><h2>Currently</h2><img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\"></div>"
+				+ "<div><p>Current temp is: " + data.main.temp + "&#8457;</p>"
 				+ "<p>High: " + data.main.temp_max + "&#8457; | Low: " + data.main.temp_min + "&#8457;</p>" 
 				+ "<p>Humidity: " + data.main.humidity + " | Cloudiness: " + data.clouds.all + "%</p></div>"
-
 			)
 		});
 
-		// WEATHER FORECAST - 3 DAYS
+		// FORECAST - TODAY AND TOMORROW
 
     	var weatherForecast = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
     		APPID: "1fbecd438f3c0fc0b47f64744018d2f2",
 			lat:   30.1,
 			lon:   -98.42,
 			units: "imperial",
-			cnt: 	3
+			cnt: 	2
     	});
 
     	weatherForecast.always(function () {
@@ -79,15 +106,13 @@
 			console.log(data.list[1].dt); // Day 2
 			console.log(data.list[1].temp.max); // Day 2
 			console.log(data.list[1].temp.min); // Day 2
-			console.log(data.list[2].weather[0].icon); // Day 3
-			console.log(data.list[2].dt); // Day 3
-			console.log(data.list[2].temp.max); // Day 3
-			console.log(data.list[2].temp.min); // Day 3
+		
+			$("#tomorrowWeather").append(
+				"<div><h2>Tomorrow</h2><img src=\"http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png\"></div><div><p>High: " + data.list[0].temp.max + "&#8457; | Low: " + data.list[0].temp.min + "&#8457;</p></div>"
+			)
 
-			$("#insertWeather").append(
-				"<div><h2>Day 1</h2><img src=\"http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png\"></div><div><p>High: " + data.list[0].temp.max + "&#8457; | Low: " + data.list[0].temp.min + "&#8457;</p></div>"
-				+ "<div><h2>Day 2</h2><img src=\"http://openweathermap.org/img/w/" + data.list[1].weather[0].icon + ".png\"></div><div><p>High: " + data.list[1].temp.max + "&#8457; | Low: " + data.list[1].temp.min + "&#8457;</p></div>"
-				+ "<div><h2>Day 3</h2><img src=\"http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png\"></div><div><p>High: " + data.list[2].temp.max + "&#8457; | Low: " + data.list[2].temp.min + "&#8457;</p></div>"
+			$("#dayAfterTomorrow").append(
+				"<div><h2>Day After</h2><img src=\"http://openweathermap.org/img/w/" + data.list[1].weather[0].icon + ".png\"></div><div><p>High: " + data.list[1].temp.max + "&#8457; | Low: " + data.list[1].temp.min + "&#8457;</p></div>"
 			)
     	});
 
