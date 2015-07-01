@@ -24,11 +24,44 @@
         ],
         "price": 200
     }, {
-        "title": "Screwdrivers",
+        "title": "Screwdriver",
         "quantity": 25,
         "categories": [
             "tool"
         ],
         "price": 10
+    }, {
+        "title": "Saw",
+        "quantity": 12,
+        "categories": [
+            "tool",
+            "outdoor"
+        ],
+        "price": 20
+    }, {
+        "title": "Drill bit set",
+        "quantity": 18,
+        "categories": [
+            "tool",
+            "outdoor"
+        ],
+        "price": 6
+    }, {
+        "title": "Generator",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "outdoor",
+            "powered"
+        ],
+        "price": 500
+    }, {
+        "title": "Compressor",
+        "quantity": 40,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 200
     }
 ]
