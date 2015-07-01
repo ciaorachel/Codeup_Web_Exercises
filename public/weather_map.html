@@ -51,17 +51,17 @@
 			console.log(data.coord);
 			console.log(data.weather);
 			console.log(data.main);
-			console.log("Current temp is: " + data.main.temp);
+			console.log("Current temp is: " + data.main.temp + "&#8457;");
 			console.log("Humidity: " + data.main.humidity);
-			console.log("Low temp: " + data.main.temp_min);
-			console.log("High temp: " + data.main.temp_max);
+			console.log("Low temp: " + data.main.temp_min + "&#8457;");
+			console.log("High temp: " + data.main.temp_max + "&#8457;");
 			console.log(data.dt);
 			console.log(data.weather[0].main);
 			console.log(data.weather[0].icon);
 
 			$("#insertWeather").append(
-				"<div><img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\"></div><div><p>Current temp is: " + data.main.temp + "</p>"
-				+ "<p>High: " + data.main.temp_max + " | Low: " + data.main.temp_min + "</p>" 
+				"<div><img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\"></div><div><p>Current temp is: " + data.main.temp + "&#8457;</p>"
+				+ "<p>High: " + data.main.temp_max + "&#8457; | Low: " + data.main.temp_min + "&#8457;</p>" 
 				+ "<p>Humidity: " + data.main.humidity + " | Cloudiness: " + data.clouds.all + "%</p></div>"
 
 				)
