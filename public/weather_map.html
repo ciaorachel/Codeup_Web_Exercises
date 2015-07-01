@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather API Exercise</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<style>
+	#insertWeather {
+		margin: 0 auto;
+		padding: 10px;
+	}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>Weather API Exercise</h1>
+
+		<div id="insertWeather"></div>
+	</div>
+	<script src="/js/jquery.js"></script>
+	<script>
+	"use strict";
+    $(document).ready(function () {
+
+    	/*function updateWeather () {
+    		$("insertWeather").html(" ");
+    	};
+    		$.each(data, function(index, data){
+
+    		})*/
+
+		var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
+			APPID: "1fbecd438f3c0fc0b47f64744018d2f2",
+			lat:   30.1,
+			lon:   -98.42,
+			units: "imperial"
+		});
+
+		ajaxRequest.always(function() {
+			console.log("request sent");
+
+		});
+
+		ajaxRequest.fail(function(data, error) {
+			console.log(error);
+			console.log(ajaxRequest.status);
+		});
+
+		ajaxRequest.done(function(data) {
+						console.log(data);
+			console.log("Current cloud coverage is: " + data.clouds.all + "%");
+			console.log(data.coord);
+			console.log(data.weather);
+			console.log(data.main);
+			console.log("Current temp is: " + data.main.temp);
+			console.log("Humidity: " + data.main.humidity);
+			console.log("Low temp: " + data.main.temp_min);
+			console.log("High temp: " + data.main.temp_max);
+			console.log(data.dt);
+			console.log(data.weather[0].main);
+			console.log(data.weather[0].icon);
+
+			$("#insertWeather").append(
+				"<div><img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\"></div><div><p>Current temp is: " + data.main.temp + "</p>"
+				+ "<p>High: " + data.main.temp_max + " | Low: " + data.main.temp_min + "</p>" 
+				+ "<p>Humidity: " + data.main.humidity + " | Cloudiness: " + data.clouds.all + "%</p></div>"
+
+				)
+		});
+
+
+		/*//Notes - save for open weather icon 
+
+		<div><img src="'http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'"</div>
+
+		http://openweathermap.org/img/w/50d.png
+
+		http://openweathermap.org/img/w/[icon].png -- [icon] comes from the api request
+*/
+	});
+
+	</script>
+
+</body>
+</html>
+
+
