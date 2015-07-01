@@ -11,21 +11,32 @@
         width: 60%;
         margin: 0 auto;
         padding: 5px;
+        border-collapse: collapse;
     }
 
-    th {
-        width: 100px;
+    thead {
+        background-color: #339966;
+        color: #eeeeee;
+    }
+
+    th, td {
+        width: 25%;
+        padding: 5px;
     }
 
     header {
         width: 60%;
         margin: 0 auto;
+        padding: 10px;
+        background-color: #CECEB5;
     }
 
-    label {
-        padding-left: 20px;
-        padding-right: 20px;
+    button {
+        position: relative;
+        float: right;
+        top: 30px;
     }
+
 
     </style>
 </head>
@@ -36,10 +47,9 @@
 <h1>My Tool Store</h1>
 </label>
 <button id="refresh">Update for latest inventory</button>
-
 </header>
 
-<table id="products">
+<table class="table-striped" id="products">
     <thead>
         <tr>
             <th>Title</th>
