@@ -6,7 +6,19 @@
 		<link rel="stylesheet" href="/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/css/custom.css">
 		<style>
-		
+			body {
+				background-color: #FFFFF3;
+			}
+
+			h3 {
+				font-style: italic;
+				color: #339966;
+			}
+
+			small {
+				color: #a3a3a3;
+			}
+
 		</style>
 </head>
 
@@ -25,6 +37,8 @@
     "use strict";
     $(document).ready(function () {
 
+
+
     		$.get("/data/blog.json")
     			.done (function(data) {
     				$("#insertProducts").html(" ");
@@ -32,7 +46,7 @@
 							$("#posts").append(
 	                            "<div><h3>" + data.title + " | <small>" + data.date + "</small></h3>"
 	                            + "<p>" + data.content + "</p>"
-	                            + "<p><small>" + data.categories + "</small></p></div>");
+	                            + "<small>" + data.categories + "</small></div>");
 						})					
 	    		})  .fail(function() {
 	            })  .always(function() {
@@ -41,7 +55,8 @@
     });
 
 
-/*    
+   
+/*
     // REFACTOR BLOG CODE ABOVE TO FIT WITHIN:
 
 	(function() {
@@ -51,7 +66,19 @@
 			//add post object to global posts array
 			//append post data to the page
 
+			$.post("/data/blog.json", {
+				title:      "My Next Blog Post",
+				content:    "It's a short one. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+				categories:  [
+							  "blah", 
+							  "brief", 
+							  "AJAX"
+							  ],
+				date:      	  "June 30, 2015"
+			});
 	    };
+
+	    addPost();
 
 	    var removePost = function(index) {
 			//find post in array by index
@@ -70,8 +97,8 @@
 			// attach event listener for remove post button
 	    });
 	})();
+*/
 
-    */
 
 })();
 </script>
