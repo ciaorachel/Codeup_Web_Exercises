@@ -21,61 +21,78 @@
 	"use strict";
     $(document).ready(function () {
 
-    	/*function updateWeather () {
-    		$("insertWeather").html(" ");
-    	};
-    		$.each(data, function(index, data){
 
-    		})*/
-
-		var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
+    	//CURRENT WEATHER
+		var weatherToday = $.get("http://api.openweathermap.org/data/2.5/weather", {
 			APPID: "1fbecd438f3c0fc0b47f64744018d2f2",
 			lat:   30.1,
 			lon:   -98.42,
 			units: "imperial"
 		});
 
-		ajaxRequest.always(function() {
-			console.log("request sent");
+		weatherToday.always(function() {
+			/*console.log("request sent");*/
 
 		});
 
-		ajaxRequest.fail(function(data, error) {
+		weatherToday.fail(function(data, error) {
+			/*console.log(error);
+			console.log(weatherToday.status);*/
+		});
+
+		weatherToday.done(function(data) {
+			/*console.log(data);*/
+			$("#insertWeather").append(
+				"<div><h2>Currently</h2><img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\"></div><div><p>Current temp is: " + data.main.temp + "&#8457;</p>"
+				+ "<p>High: " + data.main.temp_max + "&#8457; | Low: " + data.main.temp_min + "&#8457;</p>" 
+				+ "<p>Humidity: " + data.main.humidity + " | Cloudiness: " + data.clouds.all + "%</p></div>"
+
+			)
+		});
+
+		// WEATHER FORECAST - 3 DAYS
+
+    	var weatherForecast = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+    		APPID: "1fbecd438f3c0fc0b47f64744018d2f2",
+			lat:   30.1,
+			lon:   -98.42,
+			units: "imperial",
+			cnt: 	3
+    	});
+
+    	weatherForecast.always(function () {
+    		console.log("request sent");
+		});
+
+		weatherForecast.fail(function(data, error) {
 			console.log(error);
 			console.log(ajaxRequest.status);
 		});
 
-		ajaxRequest.done(function(data) {
-						console.log(data);
-			console.log("Current cloud coverage is: " + data.clouds.all + "%");
-			console.log(data.coord);
-			console.log(data.weather);
-			console.log(data.main);
-			console.log("Current temp is: " + data.main.temp + "&#8457;");
-			console.log("Humidity: " + data.main.humidity);
-			console.log("Low temp: " + data.main.temp_min + "&#8457;");
-			console.log("High temp: " + data.main.temp_max + "&#8457;");
-			console.log(data.dt);
-			console.log(data.weather[0].main);
-			console.log(data.weather[0].icon);
+		weatherForecast.done(function(data) {
+			console.log(data);
+			console.log(data.list[0].weather[0].icon); // Day 1
+			console.log(data.list[0].dt); // Day 1
+			console.log(data.list[0].temp.max); // Day 1
+			console.log(data.list[0].temp.min); // Day 1
+			console.log(data.list[1].weather[0].icon); // Day 2
+			console.log(data.list[1].dt); // Day 2
+			console.log(data.list[1].temp.max); // Day 2
+			console.log(data.list[1].temp.min); // Day 2
+			console.log(data.list[2].weather[0].icon); // Day 3
+			console.log(data.list[2].dt); // Day 3
+			console.log(data.list[2].temp.max); // Day 3
+			console.log(data.list[2].temp.min); // Day 3
 
 			$("#insertWeather").append(
-				"<div><img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\"></div><div><p>Current temp is: " + data.main.temp + "&#8457;</p>"
-				+ "<p>High: " + data.main.temp_max + "&#8457; | Low: " + data.main.temp_min + "&#8457;</p>" 
-				+ "<p>Humidity: " + data.main.humidity + " | Cloudiness: " + data.clouds.all + "%</p></div>"
+				"<div><h2>Day 1</h2><img src=\"http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png\"></div><div><p>High: " + data.list[0].temp.max + "&#8457; | Low: " + data.list[0].temp.min + "&#8457;</p></div>"
+				+ "<div><h2>Day 2</h2><img src=\"http://openweathermap.org/img/w/" + data.list[1].weather[0].icon + ".png\"></div><div><p>High: " + data.list[1].temp.max + "&#8457; | Low: " + data.list[1].temp.min + "&#8457;</p></div>"
+				+ "<div><h2>Day 3</h2><img src=\"http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png\"></div><div><p>High: " + data.list[2].temp.max + "&#8457; | Low: " + data.list[2].temp.min + "&#8457;</p></div>"
+			)
+    	});
 
-				)
-		});
 
-
-		/*//Notes - save for open weather icon 
-
-		<div><img src="'http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'"</div>
-
-		http://openweathermap.org/img/w/50d.png
-
-		http://openweathermap.org/img/w/[icon].png -- [icon] comes from the api request
-*/
+		
 	});
 
 	</script>
