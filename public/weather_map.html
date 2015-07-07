@@ -1,123 +1,145 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Weather API Exercise</title>
+	<title>Weather Forecast</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<style>
 	#threeDayForecast {
-		width: 80%;
+		width: 680px;
 		margin: 0 auto;
-		padding: 10px;
+		text-align: center;
 	}
 
-	#currentWeather {
+	.weatherDisplay {
 		width: 210px;
 		padding: 10px;
+		float: left;
+		border: 1px solid #eeeeee;
 		margin-right: 10px;
-		float: left;
-		border: 1px solid #eeeeee;
+		margin-bottom: 10px;
 	}
 
-	#tomorrowWeather {
-		width: 210px;
-		padding: 10px;
-		float: left;
-		border: 1px solid #eeeeee;
-		min-height: 100%;
-	}
-
-	#dayAfterTomorrow {
-		width: 210px;
-		padding: 10px;
-		margin-left: 10px;
-		float: left;
-		border: 1px solid #eeeeee;
-		min-height: 100%;
-	}
+	#map-canvas {
+    width: 650px;
+    height: 500px;
+    margin-top: 10px;
+  }
 	</style>
 </head>
 <body>
 	<div class="container-fluid">
-
-		<div id="threeDayForecast">
-			<h1>Weather API Exercise</h1>
-			<div id="currentWeather"></div>
-			<div id="tomorrowWeather"></div>
-			<div id="dayAfterTomorrow"></div>
+		<div class="row">
+			<div class=".col-xs-6 .col-sm-4"></div>
+			<div class=".col-xs-6 .col-sm-4">
+				<h1>Weather API Exercise</h1>
+				<div id="threeDayForecast"></div>
+				<div id="map-canvas"></div>
 			</div>
+			<div class=".col-xs-6 .col-sm-4"></div>
 		</div>
 	</div>
+
+	<!-- Load Google Maps-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEJFL7QPQ-PFer9t_nYvjTp89CUgSegDs
+	"></script>
+
+	<script src="/js/moment.min.js"></script>
+	<script>
+    	moment().format();
+	</script>
+
 	<script src="/js/jquery.js"></script>
 	<script>
 	"use strict";
     $(document).ready(function () {
+    	var weather;
+		var latitude = 29.425738;
+		var longitude = -98.486062;
 
-    	//CURRENT WEATHER
-		var weatherToday = $.get("http://api.openweathermap.org/data/2.5/weather", {
-			APPID: "1fbecd438f3c0fc0b47f64744018d2f2",
-			lat:   30.1,
-			lon:   -98.42,
-			units: "imperial"
-		});
 
-		weatherToday.always(function() {
-		});
-
-		weatherToday.fail(function(data, error) {
-			/*console.log(error);
-			console.log(weatherToday.status);*/
-		});
-
-		weatherToday.done(function(data) {
-			$("#currentWeather").append(
-				"<div><h2>Currently</h2><img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\"></div>"
-				+ "<div><p>Current temp is: " + data.main.temp + "&#8457;</p>"
-				+ "<p>High: " + data.main.temp_max + "&#8457; | Low: " + data.main.temp_min + "&#8457;</p>" 
-				+ "<p>Humidity: " + data.main.humidity + " | Cloudiness: " + data.clouds.all + "%</p></div>"
-			)
-		});
-
-		// FORECAST - TODAY AND TOMORROW
-
+		// 3 DAY FORECAST
     	var weatherForecast = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
     		APPID: "1fbecd438f3c0fc0b47f64744018d2f2",
-			lat:   30.1,
-			lon:   -98.42,
+			lat:   latitude,
+			lon:   longitude,
 			units: "imperial",
-			cnt: 	2
+			cnt: 	3
     	});
 
     	weatherForecast.always(function () {
-    		console.log("request sent");
-		});
+/*    		console.log("request sent");
+*/		});
 
 		weatherForecast.fail(function(data, error) {
 			console.log(error);
-			console.log(ajaxRequest.status);
 		});
 
 		weatherForecast.done(function(data) {
-			console.log(data);
-			console.log(data.list[0].weather[0].icon); // Day 1
-			console.log(data.list[0].dt); // Day 1
-			console.log(data.list[0].temp.max); // Day 1
-			console.log(data.list[0].temp.min); // Day 1
-			console.log(data.list[1].weather[0].icon); // Day 2
-			console.log(data.list[1].dt); // Day 2
-			console.log(data.list[1].temp.max); // Day 2
-			console.log(data.list[1].temp.min); // Day 2
-		
-			$("#tomorrowWeather").append(
-				"<div><h2>Tomorrow</h2><img src=\"http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png\"></div><div><p>High: " + data.list[0].temp.max + "&#8457; | Low: " + data.list[0].temp.min + "&#8457;</p></div>"
-			)
+			/*console.log(data);*/
+			
+			for (var i = 0; i < data.list.length; i++) {
+    			/*console.log(i);*/
 
-			$("#dayAfterTomorrow").append(
-				"<div><h2>Day After</h2><img src=\"http://openweathermap.org/img/w/" + data.list[1].weather[0].icon + ".png\"></div><div><p>High: " + data.list[1].temp.max + "&#8457; | Low: " + data.list[1].temp.min + "&#8457;</p></div>"
-			)
+    			$("#threeDayForecast").append(
+				"<div class=\"weatherDisplay\"><h3>" + data.list[i].dt + "</h3>"
+				+ "<div><img src=\"http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png\"></div><div><p>High: " + data.list[i].temp.max + "&#8457; | Low: " + data.list[i].temp.min + "&#8457;</p><p>Humidity: " + data.list[i].humidity + "&#37;</p><p>Cloudiness: " + data.list[i].clouds + "&#37;</p></div>"
+				);
+
+
+    		};
+
+
+
+
+    		
+
+	
+	
+
+	/*function weatherMap () {
+	  var address = "300 Alamo Plaza, San Antonio, TX 78205";
+
+	  var geocoder = new google.maps.Geocoder();
+
+	  geocoder.geocode( { 'address': address}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {
+	      var mapOptions = {
+	        zoom: 5,
+	        center: results[0].geometry.location,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP
+	      };
+	    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+	    var alamo = { lat: latitude, lng: longitude };
+	    var marker = new google.maps.Marker({
+	      position: alamo,
+	      map: map,
+	      draggable: true	    
+	  	});
+
+	  	//Get lon lat of marker
+	  	google.maps.event.addListener(marker, "dragend", function(event){
+	  		console.log(this.getPosition());
+	  		weather = $.ajax("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + this.getPosition().lat() + "&lon=" + this.getPosition().lng() + "&APPID=1fbecd438f3c0fc0b47f64744018d2f2");
+	  		console.log("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + this.getPosition().lat() + "&lon=" + this.getPosition().lng() + "&APPID=1fbecd438f3c0fc0b47f64744018d2f2");
+
+	  		latitude = this.getPosition().lat();
+	  		longitude = this.getPosition().lng();
+	  		
+	  		console.log(this.getPosition().lat());
+			console.log(this.getPosition().lng());
     	});
 
 
-		
+
+
+	    } else {
+	        alert("Geocoding was not successful - STATUS: " + status);
+	      }
+	  })
+    }
+
+    weatherMap ();*/
+		});
 	});
 
 	</script>
