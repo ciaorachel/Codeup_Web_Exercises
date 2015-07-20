@@ -20,9 +20,9 @@ $myFaveThings = array('kittens', 'puppies', 'bunnies', 'flowers', 'chocolate');
 		My Favorite Things
 		</th></tr></thead>
 
-		<? foreach ($myFaveThings as $myFaveThing): ?>
-			<tr><td><?= $myFaveThing; ?></td></tr>
-		<? endforeach; ?>
+		<?php foreach ($myFaveThings as $myFaveThing) { ?>
+			<tr><td><?php echo $myFaveThing; ?></td></tr>
+		<?php } ?>
 		</table>
 	</div>
 
