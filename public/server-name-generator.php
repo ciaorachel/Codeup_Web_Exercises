@@ -18,7 +18,8 @@ function getRandomName ($arrayOne, $arrayTwo) {
     body {
     	font-family: Arial, Helvetica, sans-serif;
     	text-align: center;
-    	background-color: #FFFF66;
+    	background-color: #FFFFFF;
+    	margin: 0;
     }
     h1 {
     	color: #121212;
@@ -27,19 +28,24 @@ function getRandomName ($arrayOne, $arrayTwo) {
     h2 {
     	color: #333333;
     	font-size: 3rem;
+    	font-weight: lighter;
     }
 
 	#gradient {
-    	height: 100%;
+    	height: 140%;
+    	width: 100%;
     	background-image: linear-gradient(
     		to right,
     		#FFFF66, #FF6600
     		);
+    	padding-top: 1%;
     }
     </style>
 </head>
-<body id="gradient">
-	<h1>Server Name Generator</h1>
+<body>
+	<div id="gradient">
+		<h1>Server Name Generator</h1>
+	</div>
 	<h2><?php echo getRandomName($adjectives, $nouns); ?></h2>
 </body>
 </html>
