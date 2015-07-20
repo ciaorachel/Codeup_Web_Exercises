@@ -40,6 +40,6 @@ function getRandomName ($arrayOne, $arrayTwo) {
 </head>
 <body id="gradient">
 	<h1>Server Name Generator</h1>
-	<h2><?= getRandomName($adjectives, $nouns); ?></h2>
+	<h2><?php echo getRandomName($adjectives, $nouns); ?></h2>
 </body>
 </html>
