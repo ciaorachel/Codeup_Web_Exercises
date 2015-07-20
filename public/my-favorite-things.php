@@ -1,5 +1,5 @@
 <?php  
-$myFaveThings = ['kittens', 'puppies', 'bunnies', 'flowers', 'chocolate'];
+$myFaveThings = array('kittens', 'puppies', 'bunnies', 'flowers', 'chocolate');
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,9 +20,9 @@ $myFaveThings = ['kittens', 'puppies', 'bunnies', 'flowers', 'chocolate'];
 		My Favorite Things
 		</th></tr></thead>
 
-		<?php foreach ($myFaveThings as $myFaveThing) { ?>
-			<tr><td><?php echo $myFaveThing . PHP_EOL; ?></td></tr>
-		<?php } ?>
+		<? foreach ($myFaveThings as $myFaveThing): ?>
+			<tr><td><?= $myFaveThing; ?></td></tr>
+		<? endforeach; ?>
 		</table>
 	</div>
 
