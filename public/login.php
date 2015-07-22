@@ -1,5 +1,14 @@
 <?php
-	var_dump($_POST);
+	session_start();
+
+	if (isset($_GET['reset']) && $_GET['reset'] == 'true') {
+		session_destroy();
+		header('Location: login.php');
+		exit();
+	} 
+
+	$sessionId = session_id();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,5 +23,7 @@
     	<input type="password" name="password" placeholder="Type your password"><br>
     	<input type="submit">
 	</form>
+
+	<p>Session Id: <?php echo $sessionId; ?></p>
 </body>
 </html>
