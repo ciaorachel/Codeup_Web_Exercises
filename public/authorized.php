@@ -1,15 +1,19 @@
 <?php
-
+	
+	//session start
 	session_start();
 
+	//session destroy call when reset=true
 	if (isset($_GET['reset']) && $_GET['reset'] == 'true') {
 		session_destroy();
 		header('Location: logout.php');
 		exit();
 	} 
 
+	//assigns a session id
 	$sessionId = session_id();
 
+	//authorizes user credentials
 	if (!empty($_POST['username']) && !empty($_POST['password'])) {
 		if ($_POST['username'] == 'guest' && $_POST['password']  == 'password') {
 			$header = "Welcome, {$_POST['username']}!";
@@ -37,6 +41,7 @@
 		exit();
 	}
 
+	//session destroy function
 	function endSession() {
 	    $_SESSION["LOGGED_IN_USER"]= array();
 
