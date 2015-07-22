@@ -1,4 +1,5 @@
 <?php
+	//start session
 	session_start();
 
 	if (isset($_GET['reset']) && $_GET['reset'] == 'true') {
