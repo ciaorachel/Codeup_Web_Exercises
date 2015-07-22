@@ -1,13 +1,13 @@
 <?php  
-
+	//resume session
 	session_start();
 
-
+	//destroy the session and redirect to login page
 	endSession();
 	header('Location: login.php');
 	exit();
 
-
+	//function to destroy the session
 	function endSession() {
 	    $_SESSION["LOGGED_IN_USER"]= array();
 
