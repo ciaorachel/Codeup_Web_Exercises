@@ -57,6 +57,7 @@
 	    session_destroy();
 	}
 
+require_once '../functions.php';
 
 ?>
 <!DOCTYPE html>
