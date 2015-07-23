@@ -1,6 +1,6 @@
 <?php
 	
-	//session start
+	//resume session
 	session_start();
 
 	//session destroy call when reset=true
@@ -12,34 +12,50 @@
 
 	//assigns a session id
 	$sessionId = session_id();
+	
+	
+	//pageController function validates log-in credentials
+	function pageController()
+	{
+		$data = array();
 
-	//authorizes user credentials
-	if (!empty($_POST['username']) && !empty($_POST['password'])) {
-		if ($_POST['username'] == 'guest' && $_POST['password']  == 'password') {
-			$header = "Welcome, {$_POST['username']}!";
-			$message = "Login successful";
-			$_SESSION["LOGGED_IN_USER"]= array();
-			$logout = "Logout";
+		//this if-else checks inputs to confirm whether entries match the username and password
+		if (!empty($_POST['username']) && !empty($_POST['password'])) {
+
+			if ($_POST['username'] == 'guest' && $_POST['password']  == 'password') {
+					$data['header'] = "Welcome, {$_POST['username']}!";
+					$data['message'] = "Login successful";
+					$_SESSION["LOGGED_IN_USER"]= array();
+					$data['logout'] = "Logout";
+
+				} else {
+					if ($_POST['username'] != 'guest' && $_POST['password'] == 'password') { 
+						$data['header'] = "NOT Authorized";
+						$data['message'] = "Username incorrect";
+						$data['logout'] = "Go back to log in";
+
+					} elseif ($_POST['username'] == 'guest' && $_POST['password'] != 'password') {
+						$data['header'] = "NOT Authorized";
+						$data['message'] = "Password incorrect";
+						$data['logout'] = "Go back to log in";
+
+					} else {
+						$data['header'] = "NOT Authorized";
+						$data['message'] = "Username and password incorrect";
+						$data['logout'] = "Go back to log in";
+					}
+				}
 		} else {
-			if ($_POST['username'] != 'guest' && $_POST['password'] == 'password') { 
-				$header = "NOT Authorized";
-				$message = "Username incorrect";
-				$logout = "Go back to log in";
-			} elseif ($_POST['username'] == 'guest' && $_POST['password'] != 'password') {
-				$header = "NOT Authorized";
-				$message = "Password incorrect";
-				$logout = "Go back to log in";
-			} else {
-				$header = "NOT Authorized";
-				$message = "Username and password incorrect";
-				$logout = "Go back to log in";
-			}
+			endSession();
+			header('Location: login.php');
+			exit();
 		}
-	} else {
-		endSession();
-		header('Location: login.php');
-		exit();
+
+		return $data;
 	}
+
+	extract(pageController());
+
 
 	//session destroy function
 	function endSession() {
@@ -78,8 +94,6 @@
 <body>
 	<h1><?php echo $header; ?></h1>
 	<h2><?php echo $message; ?></h2>
-	<a href="logout.php?reset=true"><?php echo $logout; ?></a>
-	<p>Session Id: <?php echo $sessionId; ?></p>
-
+	<a href="logout.php"><?php echo $logout; ?></a>
 </body>
 </html>
