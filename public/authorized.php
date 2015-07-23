@@ -94,6 +94,6 @@
 <body>
 	<h1><?php echo $header; ?></h1>
 	<h2><?php echo $message; ?></h2>
-	<a href="logout.php"><?php echo $logout; ?></a>
+	<a href="authorized.php?reset=true"><?php echo $logout; ?></a>
 </body>
 </html>
