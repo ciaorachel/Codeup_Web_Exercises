@@ -2,12 +2,7 @@
 	//start session
 	session_start();
 
-	if (isset($_GET['reset']) && $_GET['reset'] == 'true') {
-		session_destroy();
-		header('Location: login.php');
-		exit();
-	} 
-
+	//assigns a session id
 	$sessionId = session_id();
 
 ?>
@@ -25,6 +20,5 @@
     	<input type="submit">
 	</form>
 
-	<p>Session Id: <?php echo $sessionId; ?></p>
 </body>
 </html>
