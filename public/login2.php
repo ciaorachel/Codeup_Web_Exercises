@@ -3,13 +3,7 @@
 	//resume session
 	session_start();
 
-	//session destroy call when reset=true
-	if (isset($_GET['reset']) && $_GET['reset'] == 'true') {
-		session_destroy();
-		header('Location: logout.php');
-		exit();
-	} 
-
+	
 	//assigns a session id
 	$sessionId = session_id();
 	
