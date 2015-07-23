@@ -62,9 +62,54 @@
 	(function() {
     "use strict";
 
+    	var posts = [];
+
+    	var ajaxRequest = $.get(/data/bog.json);
+
+    	var getAllPosts = function() {
+			ajaxRequest.always(function() {
+				console.log("request sent");
+			});
+
+			ajaxRequest.fail(function(data, error) {
+				console.log(error);
+				console.log(ajaxRequest.status);
+			});
+
+			ajaxRequest.done(function(data, error) {
+				$.each(data, function(index, postObject) {
+					addPost(postObject);
+				});
+			});
+    	};
+
 	    var addPost = function(post) {
-			//add post object to global posts array
-			//append post data to the page
+			posts.push(post);
+			
+			var header = "<h3>" + post.title + "</h3>":
+			var content = "<p>" + post.content + "</p>":
+			var date = "<p>" + post.date + "<p>":
+			var categories = "<p>Categories: " + post.categories + "</p>":
+
+			var htmlString = header + content + date + categories + "<br>";
+			$("#blog-posts").append(htmlString);
+		};
+
+		$("#create-post-button").click(function() {
+			var title = $("#post-title").val();
+			var body = $("#post-body").val();
+			var categories = ["blog", "example"];
+			var date = new Date().toString();
+
+			var post = {
+				"title": title,
+				"content": body,
+				"date": date,
+				"categories": categoreis
+			}
+
+			addPost(post);
+		});
 
 			$.post("/data/blog.json", {
 				title:      "My Next Blog Post",
