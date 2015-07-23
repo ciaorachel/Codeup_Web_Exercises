@@ -1,15 +1,13 @@
 <?php
-	var_dump($_POST);
 
 	//resume session
 	session_start();
 
-	//session destroy call when reset=true
-	if (isset($_GET['reset']) && $_GET['reset'] == 'true') {
-		session_destroy();
-		header('Location: logout2.php');
+	//confirming whether already logged in, otherwise redirect to login page
+	if (!isset($_SESSION["LOGGED_IN_USER"])) {
+		header('Location: login2.php');
 		exit();
-	} 
+	}
 
 	//assigns a session id
 	$sessionId = session_id();
