@@ -20,30 +20,19 @@
 		$data = array();
 
 		//this if-else checks inputs to confirm whether entries match the username and password
-		if (!empty($_POST['username']) && !empty($_POST['password'])) {
-
+		if (!empty($_POST['username']) && !empty($_POST['password'])) 
+		{
 			if ($_POST['username'] == 'guest' && $_POST['password']  == 'password') {
-					$data['header'] = "Welcome, {$_POST['username']}!";
-					$data['message'] = "Login successful";
-					$_SESSION["LOGGED_IN_USER"]= array();
-					$data['logout'] = "Logout";
+				$data['header'] = "Welcome, {$_POST['username']}!";
+				$data['message'] = "Login successful";
+				$_SESSION["LOGGED_IN_USER"]= array();
+				$data['logout'] = "Logout";
 
 				} else {
-					if ($_POST['username'] != 'guest' && $_POST['password'] == 'password') { 
-						$data['header'] = "NOT Authorized";
-						$data['message'] = "Username incorrect";
-						$data['logout'] = "Go back to log in";
-
-					} elseif ($_POST['username'] == 'guest' && $_POST['password'] != 'password') {
-						$data['header'] = "NOT Authorized";
-						$data['message'] = "Password incorrect";
-						$data['logout'] = "Go back to log in";
-
-					} else {
-						$data['header'] = "NOT Authorized";
-						$data['message'] = "Username and password incorrect";
-						$data['logout'] = "Go back to log in";
-					}
+					
+				$data['header'] = "NOT Authorized";
+				$data['message'] = "Username or password incorrect";
+				$data['logout'] = "Go back to log in";
 				}
 		} else {
 			endSession();
