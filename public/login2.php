@@ -19,25 +19,17 @@
 		if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
 			if ($_POST['username'] == 'guest' && $_POST['password']  == 'password') {
-					$_SESSION["LOGGED_IN_USER"]= array();
-					header('Location: authorized2.php');
-					exit();
+				$_SESSION["LOGGED_IN_USER"]= array();
+				header('Location: authorized2.php');
+				exit();
 
 			} else {
-					if ($_POST['username'] != 'guest' && $_POST['password'] == 'password') {
-						$data['message'] = "Username incorrect";
-
-					} elseif ($_POST['username'] == 'guest' && $_POST['password'] != 'password') {
-						$data['message'] = "Password incorrect";
-
-					} else {
-						$data['message'] = "Username and password incorrect";
-					}
+				$data['message'] = "Username or password incorrect";
 			}
-		} 
-
+		}
 		return $data;
-	}
+	} 
+	
 
 	extract(pageController());
 
