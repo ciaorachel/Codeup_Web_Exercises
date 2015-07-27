@@ -28,6 +28,9 @@
 	    session_destroy();
 	}
 
+	require_once '../Input.php';
+	require_once '../Auth.php';
+
 ?>
 <!DOCTYPE html>
 <html>
