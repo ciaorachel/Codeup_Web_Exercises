@@ -4,7 +4,7 @@
 	session_start();
 
 	//session destroy call when reset=true
-	if (isset($_GET['reset']) && $_GET['reset'] == 'true') {
+	if (isset($_POST['reset']) && $_POST['reset'] == 'true') {
 		session_destroy();
 		header('Location: logout.php');
 		exit();
