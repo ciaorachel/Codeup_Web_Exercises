@@ -49,8 +49,6 @@
 	    session_destroy();
 	}
 
-require_once '../Input.php';
-
 ?>
 <!DOCTYPE html>
 <html>
