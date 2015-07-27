@@ -12,7 +12,7 @@ class Input
      */
     public static function has($key)
     {
-        if (self::has($_REQUEST[$key])) {
+        if (isset($_REQUEST[$key])) {
             return true;
         } else {
             return false;
@@ -28,7 +28,7 @@ class Input
      */
     public static function get($key, $default = null)
     {
-        if (self::get($_REQUEST[$key])) {
+        if (isset($_REQUEST[$key])) {
             return $_REQUEST[$key];
         } else {
             return NULL;
