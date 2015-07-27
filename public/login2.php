@@ -49,7 +49,7 @@
 	    session_destroy();
 	}
 
-require_once '../functions.php';
+require_once '../Input.php';
 
 ?>
 <!DOCTYPE html>
