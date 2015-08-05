@@ -1,9 +1,6 @@
 <?php
-define("DB_HOST", '127.0.0.1');
-define("DB_NAME", 'parks_db'); 
-define("DB_USER", 'parks_user'); 
-define("DB_PASS", ' ');
 
+require_once 'parks_config.php';
 require_once 'db_connect.php';
 echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . PHP_EOL;
 
@@ -16,6 +13,7 @@ $createNewTable = 'CREATE TABLE national_parks(
 		location CHAR(2) NOT NULL,
 		established DATE NOT NULL,
 		area_in_acres DOUBLE(10,2) NOT NULL,
+		description TEXT(300) NOT NULL,
 		PRIMARY KEY (id),
 		UNIQUE KEY park_location_unq (park, location)
 	)';
